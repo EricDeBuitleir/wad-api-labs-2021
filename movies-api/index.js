@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import moviesRouter from './api/movies';
-import genresRouter from './api/movies';
+import genresRouter from './api/genres';
 
 dotenv.config();
 
