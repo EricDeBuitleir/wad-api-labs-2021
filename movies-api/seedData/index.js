@@ -1,6 +1,7 @@
 import userModel from '../api/users/userModel';
 import users from './users';
 import dotenv from 'dotenv';
+import genres from './genre.js';
 
 dotenv.config();
 
@@ -19,4 +20,18 @@ async function loadUsers() {
 // eslint-disable-next-line no-undef
 if (process.env.SEED_DB) {
   loadUsers();
+  loadGenres();
 }
+
+async function loadGenres() {
+    console.log('load genre Data');
+    try {
+      await userModel.deleteMany();
+      await userModel.collection.insertMany(genres);
+      console.info(`${genres.length} genres were successfully stored.`);
+    } catch (err) {
+      console.error(`failed to Load genre Data: ${err}`);
+    }
+  }
+  
+ 
