@@ -1,4 +1,5 @@
 import User from '../api/users/userModel';
+
 // Authentication and Authorization Middleware
 export default async (req, res, next) => {
   if (req.session && req.session.authenticated) {
